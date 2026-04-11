@@ -10,12 +10,20 @@ export default function Login({ navigation }: any) {
     fetch("https://localhost:7034/api/Login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", 
         },
         body: JSON.stringify({ 
             email: usuario, 
             senha: senha 
         }),
+    }) 
+    .then(resposta => {
+        console.log(resposta);
+        if (resposta.ok) {
+                console.log("Login bem-sucedido");
+        } else {
+                console.log("Login falhou");
+        }
     })
   }
 
